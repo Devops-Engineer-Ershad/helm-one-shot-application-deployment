@@ -1,7 +1,7 @@
 common:
   containerRegistryURL: todoazureacr1.azurecr.io
   ingressClass: azure-application-gateway
-todo-ui:
+todoui:
   replicas: 2
   image:
     name: todo-ui

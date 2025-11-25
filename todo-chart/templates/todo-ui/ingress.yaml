@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: {{ .Values.common.ingressClass }}
   rules:
-  - host: {{ .Values.todo-ui.ingress.host }}
+  - host: {{ .Values.todoui.ingress.host }}
     http:
       paths:
       - pathType: Prefix
@@ -14,4 +14,4 @@ spec:
           service:
             name: {{ .Release.Name }}-todo-ui-svc
             port: 
-              number: {{ .Values.todo-ui.port }}
+              number: {{ .Values.todoui.port }}
