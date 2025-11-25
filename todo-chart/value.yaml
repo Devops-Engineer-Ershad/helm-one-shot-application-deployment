@@ -1,0 +1,48 @@
+common:
+  containerRegistryURL: todoazureacr1.azurecr.io
+  ingressClass: azure-application-gateway
+todo-ui:
+  replicas: 2
+  image:
+    name: todo-ui
+    tag: v1
+  port: 80
+  ServicePort: 80
+  ingress:
+    host: todo-ui.ak4t7.shop
+
+getTask:
+  replicas: 2
+  image:
+    name: gettasks
+    tag: v1
+  port: 8000
+  ServicePort: 80
+  connectionString: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:todoserverdev.database.windows.net,1433;Database=tododbdev;Uid=sqladminuser;Pwd=P@ssword1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;" 
+  ingress:
+    host: get-tasks-api.ak4t7.shop
+    ingressClass: azure-application-gateway
+
+deleteTask:
+  replicas: 2
+  image:
+    name: deletetasks
+    tag: v1
+  port: 8000
+  ServicePort: 80
+  connectionString: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:todoserverdev.database.windows.net,1433;Database=tododbdev;Uid=sqladminuser;Pwd=P@ssword1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;" 
+  ingress:
+    host: delete-task-api.ak4t7.shop
+    ingressClass: azure-application-gateway
+
+addTask:
+  replicas: 2
+  image:
+    name: addtasks
+    tag: v1
+  port: 8000
+  ServicePort: 80
+  connectionString: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:todoserverdev.database.windows.net,1433;Database=tododbdev;Uid=sqladminuser;Pwd=P@ssword1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;" 
+  ingress:
+    host: add-task-api.ak4t7.shop
+    ingressClass: azure-application-gateway
