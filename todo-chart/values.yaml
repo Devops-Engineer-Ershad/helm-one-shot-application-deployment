@@ -12,7 +12,7 @@ todoui:
     host: todo-ui.ak4t7.shop
 
 getTask:
-  replicas: 2
+  replicas: 2                            
   image:
     name: gettasks
     tag: v1
